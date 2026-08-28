@@ -1,0 +1,12 @@
+{
+  "name": "unsloth/GLM-4.7-Flash-REAP-23B-A3B-GGUF:Q4_K_M",
+  "url": "https://huggingface.co/unsloth/GLM-4.7-Flash-GGUF",
+  "totalParams": 23,
+  "activeParams": 3,
+  "contextWindow": 202752,
+  "ranOnWeb": true,
+  "ranThroughAgent": true,
+  "isMoE": true,
+  "isThinking": true,
+  "summary": "your experience in short"
+}

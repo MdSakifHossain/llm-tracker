@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("@picocss/pico/css/pico.pink.min.css");
+
+
+* {
+    font-family: "Figtree", sans-serif !important;
+}
+
+
+header {
+    padding: 1rem 0;
+}
+
+/* utility classes */
+
+.border { border: 1px solid red; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-start { align-items: start; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: 1rem; }
+.size-1\.5 { width:  1.5rem; height: 1.5rem; }
+.header-icon { width:  3rem; height: 3rem; }
+.text-red { color: #ff0000; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.font { font-weight: 600; }
+.py-12 { padding: 3rem; }
+.font-semibold { font-weight: 600; }
+.text-2xl { font-size: 1.5rem; }
+.border-2 { border-width: 2px; }
+.border-black { border-color: black; }
+.border-dashed { border-style: dashed; }
+.rounded-xl { border-radius: 0.75rem; }
