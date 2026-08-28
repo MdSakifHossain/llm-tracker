@@ -69,7 +69,12 @@ const AddModel = () => {
       reset();
       navigate("/");
     } catch (error) {
-      console.error("Error adding model:", error);
+      if (error.response?.status === 409) {
+        reset();
+        navigate("/");
+      } else {
+        console.error("Error adding model:", error);
+      }
     }
   };
 

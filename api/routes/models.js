@@ -58,6 +58,15 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const model = validateModel(req, res);
+
+    // Check if a model with the same name already exists
+    const existing = await modelsCollection.findOne({ name: model.name });
+    if (existing) {
+      return res
+        .status(409)
+        .json({ error: "Model with the same name already exists" });
+    }
+
     const resp = await modelsCollection.insertOne(model);
     res.status(201).json({ ...model, _id: resp.insertedId });
   } catch (err) {
