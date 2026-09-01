@@ -4,8 +4,8 @@
   "totalParams": 23,
   "activeParams": 3,
   "contextWindow": 202752,
-  "ranOnWeb": true,
-  "ranThroughAgent": true,
+  "modelScore": 90,
+  "agentScore": 73,
   "isMoE": true,
   "isThinking": true,
   "summary": "your experience in short"
