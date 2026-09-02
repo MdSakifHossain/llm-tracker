@@ -1,12 +1,27 @@
 {
-  "name": "unsloth/GLM-4.7-Flash-REAP-23B-A3B-GGUF:Q4_K_M",
-  "url": "https://huggingface.co/unsloth/GLM-4.7-Flash-GGUF",
-  "totalParams": 23,
-  "activeParams": 3,
-  "contextWindow": 202752,
-  "modelScore": 90,
-  "agentScore": 73,
-  "isMoE": true,
-  "isThinking": true,
-  "summary": "your experience in short"
+  "model": {
+    "name": "GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF:Q4_K_M",
+    "url": "https://huggingface.co/GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF",
+    "total_parameters_b": 1.0,
+    "is_moe": false,
+    "active_parameters_b": null,
+    "context_window": 131072,
+    "is_thinking": true
+  },
+  "status": {
+    "is_loaded": true
+  },
+  "performance": {
+    "generated_tokens": 1162,
+    "generation_time_s": 36,
+    "generation_speed_tps": 32.27
+  },
+  "evaluation": {
+    "model_score": 25,
+    "agent_score": 0
+  },
+  "summary": {
+    "model_notes": "Fast but optional to keep. use this for small chat.",
+    "agent_notes": "Very bad"
+  }
 }

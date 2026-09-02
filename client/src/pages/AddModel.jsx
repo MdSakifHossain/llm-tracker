@@ -45,9 +45,9 @@ const AddModel = () => {
     const finalData = {
       name,
       url,
-      totalParams: parseInt(totalParams),
-      activeParams: parseInt(activeParams),
-      contextWindow: parseInt(contextWindow),
+      totalParams: parseFloat(totalParams),
+      activeParams: parseFloat(activeParams),
+      contextWindow: parseFloat(contextWindow),
       ranOnWeb,
       ranThroughAgent,
       isMoE: isMoE === "y" ? true : false,
@@ -112,10 +112,11 @@ const AddModel = () => {
           Total Params:
           <input
             type="number"
+            step="any"
             {...register("totalParams", {
               required: "Total params is required",
               min: {
-                value: 1,
+                value: 0,
                 message: "Total params must be greater than 0",
               },
             })}
@@ -164,11 +165,12 @@ const AddModel = () => {
           Active Params:
           <input
             type="number"
+            step="any"
             disabled={isMoE === "n"}
             {...register("activeParams", {
               required: "Active params is required",
               min: {
-                value: 1,
+                value: 0,
                 message: "Active params must be greater than 0",
               },
             })}

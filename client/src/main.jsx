@@ -7,6 +7,7 @@ import { RouterProvider } from "react-router/dom";
 import Root from "./layouts/Root";
 import HomePage from "./pages/HomePage";
 import AddModel from "./pages/AddModel";
+import AddModel2 from "./pages/AddModel2";
 
 import { ModelsProvider } from "./contexts/ModelsContext";
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "add",
-        Component: AddModel,
+        Component: AddModel2,
       },
     ],
   },
