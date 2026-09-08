@@ -1,6 +1,6 @@
-import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
 
 dotenv.config();
 
@@ -24,11 +24,11 @@ app.use("/api/models", modelRoutes);
 // ── Start ───────────────────────────────────────────────────────
 
 async function start() {
-  await connectMongo();
+    await connectMongo();
 
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running → http://localhost:${PORT}`);
-  });
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running → http://localhost:${PORT}`);
+    });
 }
 
 start();
