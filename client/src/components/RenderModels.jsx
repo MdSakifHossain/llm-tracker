@@ -73,7 +73,7 @@ function GetTable({ array = [] }) {
 
     const renderSortIndicator = key => {
         if (sortConfig.key !== key) return null;
-        return sortConfig.direction === "asc" ? " ^" : " v";
+        return sortConfig.direction === "asc" ? " ⬆️" : " ⬇️";
     };
 
     return (
