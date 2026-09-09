@@ -4,3 +4,5 @@ client/dist/
 
 api/node_modules/
 api/.env
+
+notes/sandbox/
