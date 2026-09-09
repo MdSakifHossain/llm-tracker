@@ -126,7 +126,7 @@ function GetTable({ array = [] }) {
                             onClick={() => handleSort("generation_time_s")}
                             style={{ cursor: "pointer", userSelect: "none" }}
                         >
-                            Time{renderSortIndicator("generation_time_s")}
+                            Time(sec){renderSortIndicator("generation_time_s")}
                         </th>
                         <th
                             scope="col"
@@ -134,7 +134,7 @@ function GetTable({ array = [] }) {
                             onClick={() => handleSort("generation_speed_tps")}
                             style={{ cursor: "pointer", userSelect: "none" }}
                         >
-                            Speed{renderSortIndicator("generation_speed_tps")}
+                            Speed(t/s){renderSortIndicator("generation_speed_tps")}
                         </th>
                         <th
                             scope="col"
@@ -175,18 +175,20 @@ function GetTable({ array = [] }) {
                             </th>
                             <td className="text-center">{getParams(model)}</td>
                             <td className="text-center">{formatNumber(model.context_window)}</td>
-                            <td className="text-center">{model.is_loaded ? "Yes" : "No"}</td>
+                            <td className="text-center">{model.is_loaded ? "✅️" : "❌️"}</td>
                             <td className="text-center">
                                 {model.generated_tokens ? formatNumber(model.generated_tokens) : "-"}
                             </td>
                             <td className="text-center">
                                 {model.generation_time_s !== null && model.generation_time_s !== undefined
-                                    ? `${model.generation_time_s}s`
+                                    ? // ? `${model.generation_time_s}s`
+                                      `${model.generation_time_s}`
                                     : "-"}
                             </td>
                             <td className="text-center">
                                 {model.generation_speed_tps !== null && model.generation_speed_tps !== undefined
-                                    ? `${model.generation_speed_tps} t/s`
+                                    ? // ? `${model.generation_speed_tps} t/s`
+                                      `${model.generation_speed_tps} `
                                     : "-"}
                             </td>
                             <td className="text-center">
@@ -199,7 +201,7 @@ function GetTable({ array = [] }) {
                                     ? model.agent_score
                                     : "-"}
                             </td>
-                            <td className="text-center">{model.is_thinking ? "Thinking" : "Standard"}</td>
+                            <td className="text-center">{model.is_thinking ? "🧠" : "⚡️"}</td>
                             <td className="text-right">
                                 {model.model_url ? (
                                     <a href={model.model_url} target="_blank" rel="noreferrer" className="secondary">

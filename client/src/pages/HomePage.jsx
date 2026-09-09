@@ -17,11 +17,11 @@ export default function HomePage() {
                 <input
                     type="search"
                     name="search"
-                    placeholder="Search by model name..."
+                    placeholder={`Search within ${models.length} Models by name...`}
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
                 />
-                <input type="submit" value="Search" />
+                {/* <input type="submit" value="Search" /> */}
             </form>
 
             {error && <MessageBox message="Error loading models" />}

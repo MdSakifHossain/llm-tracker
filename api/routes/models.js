@@ -14,11 +14,11 @@ router.get("/", async (req, res) => {
             modelsCollection
                 .find()
                 .sort({ createdAt: -1 })
-                .skip(skip)
-                .limit(limit)
-                .project({
-                    summary: 0,
-                })
+                // .skip(skip)
+                // .limit(limit)
+                // .project({
+                //     summary: 0,
+                // })
                 .toArray(),
 
             modelsCollection.countDocuments(),
