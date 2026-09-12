@@ -12,8 +12,8 @@ export default function HomePage() {
     );
 
     return (
-        <div className="flex flex-col gap-4 container">
-            <form role="search" onSubmit={e => e.preventDefault()}>
+        <div className="flex flex-col gap-4">
+            <form role="search" onSubmit={e => e.preventDefault()} className="container">
                 <input
                     type="search"
                     name="search"

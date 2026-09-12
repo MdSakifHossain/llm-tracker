@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { formatNumber, getParams } from "../utils.js";
 import MessageBox from "./MessageBox";
 
-const MODEL_NAME_LENGTH = 25;
+const MODEL_NAME_LENGTH = 20;
 
 export default function RenderModels({ list = [] }) {
     if (!list || list.length === 0) {
@@ -77,10 +77,11 @@ function GetTable({ array = [] }) {
     };
 
     return (
-        <div className="overflow-x-auto">
+        <div>
             <table>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th
                             scope="col"
                             onClick={() => handleSort("model_name")}
@@ -103,6 +104,14 @@ function GetTable({ array = [] }) {
                             style={{ cursor: "pointer", userSelect: "none" }}
                         >
                             Context{renderSortIndicator("context_window")}
+                        </th>
+                        <th
+                            scope="col"
+                            className="text-center"
+                            onClick={() => handleSort("is_thinking")}
+                            style={{ cursor: "pointer", userSelect: "none" }}
+                        >
+                            Type{renderSortIndicator("is_thinking")}
                         </th>
                         <th
                             scope="col"
@@ -152,29 +161,23 @@ function GetTable({ array = [] }) {
                         >
                             Agent Score{renderSortIndicator("agent_score")}
                         </th>
-                        <th
-                            scope="col"
-                            className="text-center"
-                            onClick={() => handleSort("is_thinking")}
-                            style={{ cursor: "pointer", userSelect: "none" }}
-                        >
-                            Type{renderSortIndicator("is_thinking")}
-                        </th>
-                        <th scope="col" className="text-right">
-                            URL
-                        </th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {sortedModels.map(model => (
+                    {sortedModels.map((model, i) => (
                         <tr key={model._id || model.model_name}>
-                            <th scope="row">
-                                {model.model_name.length > MODEL_NAME_LENGTH
-                                    ? model.model_name.slice(0, MODEL_NAME_LENGTH) + "..."
-                                    : model.model_name}
-                            </th>
+                            <td>{i}</td>
+                            <td scope="row" data-tooltip={model.model_name} data-placement="right">
+                                <a href={model.model_url} className="contrast" target="_blank">
+                                    {model.model_name.length > MODEL_NAME_LENGTH
+                                        ? model.model_name.slice(0, MODEL_NAME_LENGTH) + "..."
+                                        : model.model_name}
+                                </a>
+                            </td>
                             <td className="text-center">{getParams(model)}</td>
                             <td className="text-center">{formatNumber(model.context_window)}</td>
+                            <td className="text-center">{model.is_thinking ? "🧠" : "⚡️"}</td>
                             <td className="text-center">{model.is_loaded ? "✅️" : "❌️"}</td>
                             <td className="text-center">
                                 {model.generated_tokens ? formatNumber(model.generated_tokens) : "-"}
@@ -191,25 +194,15 @@ function GetTable({ array = [] }) {
                                       `${model.generation_speed_tps} `
                                     : "-"}
                             </td>
-                            <td className="text-center">
+                            <td className="text-center" data-placement="left" data-tooltip={model.model_notes}>
                                 {model.model_score !== null && model.model_score !== undefined
                                     ? model.model_score
                                     : "-"}
                             </td>
-                            <td className="text-center">
+                            <td className="text-center" data-placement="left" data-tooltip={model.agent_notes}>
                                 {model.agent_score !== null && model.agent_score !== undefined
                                     ? model.agent_score
                                     : "-"}
-                            </td>
-                            <td className="text-center">{model.is_thinking ? "🧠" : "⚡️"}</td>
-                            <td className="text-right">
-                                {model.model_url ? (
-                                    <a href={model.model_url} target="_blank" rel="noreferrer" className="secondary">
-                                        Link
-                                    </a>
-                                ) : (
-                                    "-"
-                                )}
                             </td>
                         </tr>
                     ))}
