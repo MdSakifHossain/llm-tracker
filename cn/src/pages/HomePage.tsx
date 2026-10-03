@@ -375,7 +375,7 @@ function SpinnerEmpty() {
         <EmptyTitle>Processing your request</EmptyTitle>
         <EmptyDescription>
           Please wait while we process your request. Server is Booting in a few
-          momnets. 😫
+          momnets.
         </EmptyDescription>
       </EmptyHeader>
     </Empty>
