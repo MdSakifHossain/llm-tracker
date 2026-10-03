@@ -21,10 +21,12 @@ import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Spinner } from "@/components/ui/spinner"
 import { Textarea } from "@/components/ui/textarea"
+import { useModels } from "@/contexts/ModelsContext"
 
 export default function EditModel() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { fetchModels } = useModels()
 
   const [isFetching, setIsFetching] = useState(true)
   const [notFound, setNotFound] = useState(false)
@@ -125,6 +127,8 @@ export default function EditModel() {
         `${import.meta.env.VITE_API_BASE_URL}/api/models/${id}`,
         payload
       )
+
+      await fetchModels()
 
       navigate("/")
     } catch (err) {

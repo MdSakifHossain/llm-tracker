@@ -24,7 +24,14 @@ export function ModelsProvider({ children }) {
   }
 
   useEffect(() => {
-    fetchModels()
+    const doTheThing = async () => {
+      try {
+        await fetchModels()
+      } catch (err) {
+        console.error("Something went wrong while fetching the models", err)
+      }
+    }
+    doTheThing()
   }, [])
 
   const value = { models, error, isLoading, fetchModels }
