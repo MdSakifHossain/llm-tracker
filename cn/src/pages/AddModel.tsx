@@ -58,25 +58,16 @@ export function LocalLlmForm() {
         data
       )
 
-      // Construct the inserted model object using backend return payload
       const createdModel = {
         ...response.data.data,
         _id: response.data.insertedId,
       }
-
-      // 1. Update Global Context State (adds new model to the top of list without refetching DB)
       updateModels([createdModel, ...models])
-
-      // 2. Reset form back to initial blank state
       reset()
-
-      // 3. Navigate back to the home/main page
       navigate("/")
     } catch (err) {
-      // Extract detailed error messages (e.g., 401 Invalid Secret, 409 Duplicate, or 400 Validation errors)
       const serverMessage = err.response?.data?.message
       const validationErrors = err.response?.data?.errors?.join("\n• ")
-
       const alertText = validationErrors
         ? `${serverMessage}:\n• ${validationErrors}`
         : serverMessage || err.message || "An unexpected error occurred."

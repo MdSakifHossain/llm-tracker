@@ -4,6 +4,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
@@ -39,7 +40,9 @@ import {
   ArrowUp,
   ArrowUpDown,
   MoreHorizontalIcon,
+  PencilIcon,
   SearchIcon,
+  TrashIcon,
 } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useNavigate } from "react-router"
@@ -355,7 +358,13 @@ function TableActions({ list }) {
                   <DropdownMenuItem
                     onClick={() => navigate(`/edit/${model._id}`)}
                   >
+                    <PencilIcon />
                     Edit
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem disabled variant="destructive">
+                    <TrashIcon />
+                    Delete
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
