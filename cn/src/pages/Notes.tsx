@@ -96,6 +96,25 @@ function CodeBlock({
 export default function Prompts() {
   return (
     <main className="container mx-auto max-w-4xl space-y-8 px-4 py-8">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl">
+            Running{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 font-mono">
+              llama.cpp
+            </code>{" "}
+            Server
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <CodeBlock
+            label="Command"
+            filename="bash"
+            content={`llama serve --jinja --no-models-autoload -c 32768`}
+          />
+        </CardContent>
+      </Card>
+
       {/* llama.cpp Section */}
       <Card>
         <CardHeader>
